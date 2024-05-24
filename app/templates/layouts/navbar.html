@@ -1,0 +1,35 @@
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <a href="{% url "index" %}" class="text-white font-bold text-lg">Arriendo de inmuebles</a>
+            <ul class="flex space-x-4">
+                <li><a href="{% url "index" %}" class="text-white hover:text-gray-300">Inicio</a></li>
+                <li><a href="{% url "about" %}" class="text-white hover:text-gray-300">Acerca de</a></li>
+
+            </ul>
+        </div>
+        <div class="relative group inline-block">
+            <button class="text-white hover:text-gray-300 focus:outline-none pl-4">
+                {% if profile.id_tipo_user.id == 1 %}
+                    Administrar
+                {% endif %}
+            </button>
+            <div class="absolute hidden group-focus-within:block right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                <a href="{% url 'allestates' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Mis propiedades</a>
+
+                <a href="{% url 'adminstate' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Agregar propiedad</a>
+
+
+            </div>
+        </div>
+        <div class="relative group inline-block ml-auto">
+            <button class="text-white hover:text-gray-300 focus:outline-none">
+                Bienvenido/a {{ user.username }}
+            </button>
+            <div class="absolute hidden group-focus-within:block right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Perfil</a>
+                <a href="{% url 'logout' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+</nav>

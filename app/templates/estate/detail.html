@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-center text-2xl font-extrabold pb-5 uppercase">Detalle del inmueble </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <img class="w-full h-auto md:h-500 md:w-750 rounded-md shadow-md" src="{{ inmueble.imagen }}" alt="Imagen del inmueble">
+    </div>
+    <div>
+      <div class="bg-white rounded-md shadow-md p-6">
+        <p class="text-xl font-bold text-gray-800 mb-4">{{ inmueble.nombre_inmueble }}</p>
+        <p class="text-gray-600 mb-4">{{ inmueble.descripcion }}</p>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <p class="font-bold">Tamaño construido:</p>
+          <p>{{ inmueble.terreno_construido }} m²</p>
+          <p class="font-bold">Tamaño del terreno:</p>
+          <p>{{ inmueble.terreno }} m²</p>
+          <p class="font-bold">Número de estacionamientos:</p>
+          <p>{{ inmueble.numero_estacionamientos }}</p>
+          <p class="font-bold">Número de baños:</p>
+          <p>{{ inmueble.numero_banos }}</p>
+          <p class="font-bold">Número de habitaciones:</p>
+          <p>{{ inmueble.numero_habitaciones }}</p>
+          <p class="font-bold">Dirección:</p>
+          <p>{{ inmueble.direccion }}</p>
+          <p class="font-bold">Precio mensual:</p>
+          <p>${{ inmueble.precio_mensual }}</p>
+        </div>
+        <div class="text-center mt-8">
+          <a href="{% url "contacto" %}" class="block w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full uppercase">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

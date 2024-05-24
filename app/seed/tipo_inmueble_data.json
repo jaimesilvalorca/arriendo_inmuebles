@@ -1,0 +1,45 @@
+[
+    {
+        "model": "app.TipoInmueble",
+        "pk": 1,
+        "fields": {
+            "tipo_inmueble": "Departamento"
+        }
+    },
+    {
+        "model": "app.TipoInmueble",
+        "pk": 2,
+        "fields": {
+            "tipo_inmueble": "Casa"
+        }
+    },
+    {
+        "model": "app.TipoInmueble",
+        "pk": 3,
+        "fields": {
+            "tipo_inmueble": "Estacionamiento"
+        }
+    },
+    {
+        "model": "app.TipoInmueble",
+        "pk": 4,
+        "fields": {
+            "tipo_inmueble": "Bodega"
+        }
+    },
+    {
+        "model": "app.TipoInmueble",
+        "pk": 5,
+        "fields": {
+            "tipo_inmueble": "Negocio"
+        }
+    },
+    {
+        "model": "app.TipoInmueble",
+        "pk": 6,
+        "fields": {
+            "tipo_inmueble": "Otro"
+        }
+    }
+]
+    

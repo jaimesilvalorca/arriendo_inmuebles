@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arriendo Inmuebles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+
+
+    {% comment %} Navbar {% endcomment %}
+    {% if user.is_authenticated  %}
+    {%block navbar%}
+    {% include "layouts/navbar.html"%}
+    {%endblock navbar%}
+    {% endif %}
+{% comment %} 
+    {%block header%}
+    {% include "layouts/header.html"%}
+    {%endblock header%} {% endcomment %}
+
+
+    <div class="flex-grow">
+      {% block content %}
+      {% endblock %}
+  </div>
+    {% if user.is_authenticated  %}
+    {%block footer%}
+    {% include "layouts/footer.html"%}
+    {%endblock footer%}
+    {% endif %}
+
+    {% comment %} Footer {% endcomment %}
+    {% comment %} {%block footer%}
+    {% include "layouts/footer.html"%}
+    {%endblock footer%}    
+
+     {% endcomment %}
+
+     <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+              body: ["Roboto", "sans-serif"],
+              mono: ["ui-monospace", "monospace"],
+            },
+          },
+          corePlugins: {
+            preflight: false,
+          },
+        };
+      </script>
+     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+</body>
+</html>

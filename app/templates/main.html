@@ -1,0 +1,181 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+<div
+  id="carouselExampleControls"
+  class="relative"
+  data-twe-carousel-init
+  data-twe-ride="carousel"
+  style="height: 600px;"> 
+  <div
+    class="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']">
+
+    <div
+      class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item
+      data-twe-carousel-active>
+      <img
+        src="https://img4.idealista.com/blur/WEB_DETAIL_TOP/0/id.pro.es.image.master/76/df/ee/1229823364.jpg"
+        class="block w-full h-auto object-cover object-center"
+        style="max-height: 600px;"
+        alt="Wild Landscape" />
+    </div>
+
+    <div
+      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item>
+      <img
+        src="https://i.pinimg.com/736x/c8/61/ca/c861ca16d2ebd77e991cab6fc0046576.jpg"
+        class="block w-full h-auto object-cover object-center"
+        style="max-height: 600px;"
+        alt="Camera" />
+    </div>
+
+    <div
+      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item>
+      <img
+        src="https://arquitecturaviva.com/assets/uploads/articulos/71318/av_182045.webp?h=00ebdec0"
+        class="block w-full h-auto object-cover object-center"
+        style="max-height: 600px;"
+        alt="Exotic Fruits" />
+    </div>
+  </div>
+
+
+  <button
+    class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-twe-target="#carouselExampleControls"
+    data-twe-slide="prev">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Previous</span
+    >
+  </button>
+  <button
+    class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-twe-target="#carouselExampleControls"
+    data-twe-slide="next">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Next</span
+    >
+  </button>
+</div>
+
+<div>
+
+
+
+  <div>
+    <div class="flex justify-center items-center mb-10 bg-white shadow" style="height: 15vh;">
+      <form id="propertyForm" >
+        {% csrf_token %}
+        <select name="region" class="shadow border">
+          <option value=""> - Seleccione -</option>
+          {% for region in regiones %}
+            <option value="{{ region.id }}">{{ region.region }}</option>
+          {% endfor %}
+        </select>
+        <select name="comuna" class="shadow border">
+          <option value=""> - Seleccione -</option>
+          {% for comuna in comunas %}
+            <option value="{{ comuna.id }}">{{ comuna.comuna }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="px-4 pl-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-md">Buscar Propiedades</button>
+      </form>
+    </div>
+  
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 py-6 pb-10 mb-10" id="inmueblesContainer">
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        $('#propertyForm').submit(function(event) {
+          event.preventDefault();
+          var formData = $(this).serialize();
+    
+          $.ajax({
+            type: 'GET',
+            url: '{% url 'buscar_inmuebles' %}',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+              $('#inmueblesContainer').empty();
+              $('#propertyForm')[0].reset(); // Limpiar el formulario después de enviar
+    
+              var inmuebles = response.inmuebles;
+              if (inmuebles.length > 0) {
+                $.each(inmuebles, function(index, inmueble) {
+                  $('#inmueblesContainer').append(`
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-y-5 pb-10">
+                      <img class="w-full h-40 object-cover object-center" src="${inmueble.imagen}" alt="${inmueble.nombre_inmueble}">
+                      <div class="px-6 py-2">
+                        <div class="font-bold text-xl mb-2">${inmueble.nombre_inmueble}</div>
+                        <p class="text-gray-700 text-base">${inmueble.descripcion}</p>
+                      </div>
+                      <div class="px-6 pt-2 pb-2">
+                        <p class="text-gray-700 text-sm">Dirección: ${inmueble.direccion}</p>
+                        <p class="text-gray-700 text-sm">Región: ${inmueble.region}</p>
+                        <p class="text-gray-700 text-sm">Comuna: ${inmueble.comuna}</p>
+                      </div>
+                      <div class="px-6 pt-2 pb-2 flex justify-between">
+                        <a href="/estate/${inmueble.id}" class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md mt-2 pb-15 mb-5">Más Detalles</a>
+                      </div>
+                    </div>
+                  `);
+                });
+              } else {
+                $('#inmueblesContainer').append('<p class="text-center">No se encontraron propiedades.</p>');
+              }
+            },
+            error: function(xhr, errmsg, err) {
+              console.log(xhr.status + ": " + xhr.responseText);
+            }
+          });
+        });
+      });
+    </script>
+  </div>
+  
+  
+
+
+
+
+{% endblock %}

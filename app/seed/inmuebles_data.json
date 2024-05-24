@@ -1,0 +1,43 @@
+[
+    {
+        "model": "app.Inmuebles",
+        "pk": 1,
+        "fields": {
+            "nombre_inmueble":"Departamento en arriendo",
+            "descripcion": "Departamento en arriendo con 3 dormitorios",
+            "terreno_construido": 75,
+            "numero_banos": 1,
+            "direccion": "Gran avenida 0000000000004",
+            "terreno": 90,
+            "numero_estacionamientos": 1,
+            "id_comuna_id": 333,
+            "id_region_id": 16,
+            "id_tipo_inmueble_id": 1,
+            "id_user_id": 1,
+            "precio_mensual": 450000,
+            "estado": true,
+            "numero_habitaciones": 2
+        }
+    },
+    {
+        "model": "app.Inmuebles",
+        "pk": 2,
+        "fields": {
+            "nombre_inmueble":"Departamento en arriendo",
+            "descripcion": "Departamento en arriendo con 3 dormitorios",
+            "terreno_construido": 75,
+            "numero_banos": 1,
+            "direccion": "Gran avenida 00000000000014",
+            "terreno": 90,
+            "numero_estacionamientos": 1,
+            "id_comuna_id": 333,
+            "id_region_id": 16,
+            "id_tipo_inmueble_id": 1,
+            "id_user_id": 1,
+            "precio_mensual": 450000,
+            "estado": true,
+            "numero_habitaciones": 2
+        }
+    }
+]
+    

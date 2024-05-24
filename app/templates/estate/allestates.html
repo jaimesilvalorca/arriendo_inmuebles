@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container mx-auto">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 py-5">
+      {% for inmueble in inmuebles %}
+      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <img class="w-full h-40 object-cover object-center" src="{{ inmueble.imagen }}" alt="{{ inmueble.nombre_inmueble }}">
+        <div class="px-6 py-2">
+          <div class="font-bold text-xl mb-2">{{ inmueble.nombre_inmueble }}</div>
+          <p class="text-gray-700 text-base">{{ inmueble.descripcion }}</p>
+        </div>
+        <div class="px-6 pt-2 pb-2">
+          <p class="text-gray-700 text-sm">Dirección: {{ inmueble.direccion }}</p>
+          <p class="text-gray-700 text-sm">Región: {{ inmueble.region }}</p>
+          <p class="text-gray-700 text-sm">Comuna: {{ inmueble.comuna }}</p>
+        </div>
+        <div class="px-6 pt-2 pb-2 flex justify-between">
+          <a href="/estate/{{ inmueble.id }}/update/" class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md mt-2">Editar</a>
+          <form action="{% url 'eliminar' inmueble.id %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md mt-2 ml-2">Eliminar</button>
+          </form>
+        </div>
+
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

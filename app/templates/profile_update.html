@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="py-10">
+    <h2 class="text-center text-2xl font-extrabold">Actualizar informacion de usuario</h2>
+    <div class="mt-8 mx-auto max-w-md">
+        <div class="bg-white py-8 px-4 shadow p-4 rounded-lg">
+            <form method="post" class="p-4 rounded-lg">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <div class="block text-sm font-medium text-gray-700 text-ce">
+
+
+                        {{ form.tipo.label_tag }}
+                    </div>
+                    <div class="w-full px-3 py-2 border border-gray-300 text-center rounded-md">
+                        {{ form.tipo }}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="block text-sm font-medium text-gray-700 text-ce">
+                        {{ form.rut.label_tag }}
+                    </div>
+
+                    <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+
+                        {{ form.rut }}
+
+                    </div>
+                    <div class="mb-4">
+                        <div class="block text-sm font-medium text-gray-700 text-ce">
+
+                        {{ form.direccion.label_tag }}
+                    </div>
+
+                    <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+
+                        {{ form.direccion }}
+                    </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="block text-sm font-medium text-gray-700 text-ce">
+
+                        {{ form.telefono.label_tag }}
+                    </div>
+
+                    <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+
+                        {{ form.telefono }}
+                    </div>
+                    </div>
+                    <button type="submit"
+                    class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 cursor-pointer rounded-full">
+                    Actualizar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

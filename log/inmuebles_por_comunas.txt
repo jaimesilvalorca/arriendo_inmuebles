@@ -1,0 +1,8 @@
+Comuna: San Bernardo
+Nombre: Departamento en arriendo
+Descripción: Departamento en arriendo con 3 dormitorios
+
+Comuna: San Bernardo
+Nombre: Departamento en arriendo
+Descripción: Departamento en arriendo con 3 dormitorios
+

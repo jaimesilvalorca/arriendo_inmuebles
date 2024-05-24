@@ -1,0 +1,8 @@
+Región: Región Metropolitana de Santiago
+Nombre: Departamento en arriendo
+Descripción: Departamento en arriendo con 3 dormitorios
+
+Región: Región Metropolitana de Santiago
+Nombre: Departamento en arriendo
+Descripción: Departamento en arriendo con 3 dormitorios
+

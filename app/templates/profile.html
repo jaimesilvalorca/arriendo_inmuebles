@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto py-5">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <div class="p-4">
+            <h2 class="text-lg font-bold mt-4 text-center pb-2">Información del perfil</h2>
+            <p class="py-1"><strong>Nombre: </strong> {{ user.first_name }}</p>
+            <p class="py-1"><strong>Apellido: </strong>{{ user.last_name }}</p>
+            <p class="py-1"><strong>Rut: </strong> {{ profile.rut }}</p>
+            <p class="py-1"><strong>Correo: </strong> {{ user.email }}</p>
+            <p class="py-1"><strong>Dirección: </strong> {{ profile.direccion }}</p>
+            <p class="py-1"><strong>Teléfono: </strong> {{ profile.telefono }}</p>
+            <p class="py-1"><strong>Tipo de usuario:  </strong> {{ tipo_user }}</p>
+
+            <div class="flex justify-center mt-4">
+            </div>
+            <a href="{% url 'profile_update' %}" class="bg-gray-600 hover:bg-gray-700 text-white mt-4 block text-center py-2 px-4 rounded-full">Editar perfil</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

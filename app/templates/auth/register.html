@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="py-10">
+    <h1 class="text-4xl my-10 font-extrabold text-center">Arriendo de inmuebles</h1>
+    <h2 class="text-center text-2xl font-extrabold">Registro</h2>
+    <div class="mt-8 mx-auto max-w-md">
+        <div class="bg-white py-8 px-4 shadow">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="id_first_name" class="block text-sm font-medium text-gray-700">Nombre</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.first_name }}
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="id_last_name" class="block text-sm font-medium text-gray-700">Apellido</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.last_name }}
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="id_username" class="block text-sm font-medium text-gray-700">Nombre de usuario</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="id_email" class="block text-sm font-medium text-gray-700">Correo</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="id_password1" class="block text-sm font-medium text-gray-700">Contraseña</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.password1 }}
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="id_password2" class="block text-sm font-medium text-gray-700">Confirme contraseña</label>
+            <div class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                {{ form.password2 }}
+            </div>
+        </div>
+        <button type="submit"
+        class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 cursor-pointer rounded-full">
+        Registro
+    </button>
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

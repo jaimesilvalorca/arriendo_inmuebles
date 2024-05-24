@@ -1,0 +1,114 @@
+[
+    {
+        "model": "app.Region",
+        "pk": 1,
+        "fields": {
+            "region": "Arica y Parinacota"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 2,
+        "fields": {
+            "region": "Tarapacá"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 3,
+        "fields": {
+            "region": "Antofagasta"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 4,
+        "fields": {
+            "region": "Atacama"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 5,
+        "fields": {
+            "region": "Coquimbo"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 6,
+        "fields": {
+            "region": "Valparaíso"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 7,
+        "fields": {
+            "region": "Región del Libertador Gral. Bernardo O'Higgins"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 8,
+        "fields": {
+            "region": "Región del Maule"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 9,
+        "fields": {
+            "region": "Región de Ñuble"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 10,
+        "fields": {
+            "region": "Región del Biobío"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 11,
+        "fields": {
+            "region": "Región de la Araucanía"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 12,
+        "fields": {
+            "region": "Región de Los Ríos"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 13,
+        "fields": {
+            "region": "Región de Los Lagos"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 14,
+        "fields": {
+            "region": "Región Aisén del Gral. Carlos Ibáñez del Campo"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 15,
+        "fields": {
+            "region": "Región de Magallanes y de la Antártica Chilena"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 16,
+        "fields": {
+            "region": "Región Metropolitana de Santiago"
+        }
+    }
+]
